@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="cardViewStyle" format="reference" />
+
+    <declare-styleable name="CardView">
+        <attr name="cardBackgroundColor" format="color" />
+        <attr name="cardCornerRadius" format="dimension" />
+        <attr name="cardElevation" format="dimension" />
+        <attr name="cardMaxElevation" format="dimension" />
+        <attr name="cardUseCompatPadding" format="boolean" />
+        <attr name="cardPreventCornerOverlap" format="boolean" />
+        <attr name="contentPadding" format="dimension" />
+        <attr name="contentPaddingLeft" format="dimension" />
+        <attr name="contentPaddingRight" format="dimension" />
+        <attr name="contentPaddingTop" format="dimension" />
+        <attr name="contentPaddingBottom" format="dimension" />
+
+        <attr name="cardShadowColorStart" format="color" />
+        <attr name="cardShadowColorEnd" format="color" />
+
+        <attr name="android:minWidth" />
+        <attr name="android:minHeight" />
+    </declare-styleable>
+
+</resources>
