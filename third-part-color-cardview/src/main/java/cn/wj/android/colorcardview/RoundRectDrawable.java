@@ -27,6 +27,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 
@@ -61,8 +62,8 @@ class RoundRectDrawable extends Drawable {
         mBoundsI = new Rect();
     }
 
-    static float calculateVerticalPadding(float maxShadowSize, float cornerRadius,
-                                          boolean addPaddingForCorners) {
+    private float calculateVerticalPadding(float maxShadowSize, float cornerRadius,
+                                           boolean addPaddingForCorners) {
         if (addPaddingForCorners) {
             return (float) (maxShadowSize * SHADOW_MULTIPLIER + (1 - COS_45) * cornerRadius);
         } else {
@@ -70,8 +71,8 @@ class RoundRectDrawable extends Drawable {
         }
     }
 
-    static float calculateHorizontalPadding(float maxShadowSize, float cornerRadius,
-                                            boolean addPaddingForCorners) {
+    private float calculateHorizontalPadding(float maxShadowSize, float cornerRadius,
+                                             boolean addPaddingForCorners) {
         if (addPaddingForCorners) {
             return (float) (maxShadowSize + (1 - COS_45) * cornerRadius);
         } else {
@@ -101,7 +102,7 @@ class RoundRectDrawable extends Drawable {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         final Paint paint = mPaint;
 
         final boolean clearColorFilter;
@@ -141,7 +142,7 @@ class RoundRectDrawable extends Drawable {
     }
 
     @Override
-    public void getOutline(Outline outline) {
+    public void getOutline(@NonNull Outline outline) {
         outline.setRoundRect(mBoundsI, mRadius);
     }
 
@@ -190,7 +191,7 @@ class RoundRectDrawable extends Drawable {
     }
 
     @Override
-    public void setTintMode(PorterDuff.Mode tintMode) {
+    public void setTintMode(@NonNull PorterDuff.Mode tintMode) {
         mTintMode = tintMode;
         mTintFilter = createTintFilter(mTint, mTintMode);
         invalidateSelf();

@@ -29,6 +29,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
@@ -175,7 +176,7 @@ class RoundRectDrawableWithShadow extends Drawable {
     }
 
     @Override
-    public boolean getPadding(Rect padding) {
+    public boolean getPadding(@NonNull Rect padding) {
         int vOffset = (int) Math.ceil(calculateVerticalPadding(mRawMaxShadowSize, mCornerRadius,
                 mAddPaddingForCorners));
         int hOffset = (int) Math.ceil(calculateHorizontalPadding(mRawMaxShadowSize, mCornerRadius,
@@ -212,7 +213,7 @@ class RoundRectDrawableWithShadow extends Drawable {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         if (mDirty) {
             buildComponents(getBounds());
             mDirty = false;
